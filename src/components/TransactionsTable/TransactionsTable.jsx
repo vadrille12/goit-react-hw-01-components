@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import { Table, TableHead, TableItem } from './TransactionsTable.styled';
 
-const TransactionsTable = ({items}) => {
+const TransactionsTable = ({ items }) => {
   return (
     <Table>
       <thead>
@@ -22,6 +23,17 @@ const TransactionsTable = ({items}) => {
       </tbody>
     </Table>
   );
+};
+
+TransactionsTable.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    })
+  ),
 };
 
 export default TransactionsTable;

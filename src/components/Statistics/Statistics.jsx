@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Container, Title, StatList, StatItem, Label, Percentage } from './Statistics.styled';
 
 const Statistics = ({ title, stats }) => {
@@ -15,6 +16,17 @@ const Statistics = ({ title, stats }) => {
       </StatList>
     </Container>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    })
+  ),
 };
 
 export default Statistics;
